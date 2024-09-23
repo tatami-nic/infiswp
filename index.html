@@ -3,9 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Shreks Abenteuer">
+    <title>Shreks Abenteuer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        header, footer, main, nav, section, article, aside, div {
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            max-width: 600px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 5px;
+        }
+        #game-over, #story, #next-step, #good-game, #game-over-crow {
+            display: none;
+        }
+    </style>
+    <script>
+        function startStory() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('story').style.display = 'block';
+        }
+
+        function makeChoice(choice) {
+            if (choice === 'N') {
+                document.getElementById('story').style.display = 'none';
+                document.getElementById('game-over').style.display = 'block';
+            } else {
+                document.getElementById('story').style.display = 'none';
+                document.getElementById('next-step').style.display = 'block';
+            }
+        }
+
+        function nextChoice(choice) {
+            if (choice === 'J') {
+                document.getElementById('next-step').style.display = 'none';
+                document.getElementById('game-over-crow').style.display = 'block';
+            } else {
+                document.getElementById('next-step').style.display = 'none';
+                document.getElementById('good-game').style.display = 'block';
+            }
+        }
+    </script>
 </head>
 <body>
-<h1>meine Website</h1>
+    <header>
+        <h1>Interaktive Geschichte</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#start-screen">Start</a></li>
+            <li><a href="#story">Geschichte</a></li>
+            <li><a href="#game-over">Ende</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="start-screen">
+            <h2>Willkommen zu der interaktiven Geschichte!</h2>
+            <button onclick="startStory()">Start</button>
+        </section>
+
+        <section id="story">
+            <h2>Stehst du auf?</h2>
+            <button onclick="makeChoice('J')">Ja</button>
+            <button onclick="makeChoice('N')">Nein</button>
+        </section>
+
+        <section id="next-step">
+            <h2>Du bist aufgestanden. Willst du lüften und das Fenster öffnen?</h2>
+            <button onclick="nextChoice('J')">Ja</button>
+            <button onclick="nextChoice('N')">Nein</button>
+        </section>
+
+        <section id="game-over">
+            <h2>Game Over</h2>
+            <article>
+                <p>Du hast dich entschieden, nicht aufzustehen. Das Spiel ist vorbei.</p>
+                <blockquote>„Manchmal ist es besser, liegen zu bleiben.“</blockquote>
+            </article>
+            <button onclick="location.reload()">Neu Starten</button>
+        </section>
+
+        <section id="game-over-crow">
+            <h2>Game Over</h2>
+            <article>
+                <p>Eine Krähe kam und nahm dich mit. Das Spiel ist vorbei.</p>
+                <pre>
+                Der Rabe flog dich weit,
+                Zu einem unbekannten Ort.
+                Game Over, dein Abenteuer endet hier.
+                </pre>
+                <address>Besuche uns für mehr Abenteuer: <a href="mailto:info@example.com">McLovin.com</a></address>
+            </article>
+            <button onclick="location.reload()">Neu Starten</button>
+        </section>
+
+        <section id="good-game">
+            <h2>Good Game</h2>
+            <article>
+                <p>Du hast das Fenster nicht geöffnet und lebst weiter. Gute Entscheidung!</p>
+                <time datetime="2024-09-23">September 23, 2024</time>
+                <p><em>Ein gutes Ende</em> ist immer eine <strong>gute Wahl</strong>!</p>
+                <cite>Spielautor: Nico Ruan, 2AHWII</cite>
+                <img src="https://wallpapers.com/images/featured/frozen-2-pictures-dto1qadmjxjq8oet.jpg" alt="Frozen Image" width="300">
+            </article>
+            <button onclick="location.reload()">Neu Starten</button>
+        </section>
+    </main>
+
+    <aside>
+        <h3>Tipps zur Geschichte</h3>
+        <p>Denke gut über deine Entscheidungen nach. Sie könnten den Ausgang beeinflussen!</p>
+    </aside>
+
+    <footer>
+        <p><small>&copy; 2024 Deine interaktive Geschichte. Alle Rechte vorbehalten.</small></p>
+    </footer>
 </body>
 </html>
+
+<!-- 
+Verwendete HTML-Elemente:
+
+Dokument-Metadaten:
+<html><head><body>, <title>, <link>, <meta>, <style>
+
+Struktur und Sektionierung:
+<header>, <footer>, <main>, <nav>, <section>, <article>, <aside>
+
+Gruppierungs-Elemente:
+<div>, <p>, <hr>, <pre>, <blockquote>, <ol>, <ul>, <li>
+
+Text-Semantik-Elemente:
+<a>, <em>, <strong>, <small>, <cite>, <abbr>, <time>, <code>, <address>
+-->
