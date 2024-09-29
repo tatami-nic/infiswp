@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakt</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+
+        header {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        nav {
+            background-color: #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid black;
+        }
+
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .main-content {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .sidebar {
+            flex: 1;
+            padding: 10px;
+            margin-left: 10px;
+            border: 1px solid black;
+        }
+
+        footer {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fakt</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="main-content">
+            <h2>Wasser gefriert bei 0 Grad Celsius.</h2>
+            <p>This is the main content area.</p>
+        </div>
+
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <p>This is the sidebar.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; CSS Box Model</p>
+    </footer>
+
+</body>
+</html>
