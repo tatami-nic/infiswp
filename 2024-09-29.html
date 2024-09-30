@@ -1,102 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fakt</title>
+    <title>CSS Position and Z-Index Example</title>
     <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            margin: 10px;
         }
-
-        header {
+        .static {
+            position: static; /* Default positioning */
             background-color: lightgray;
             padding: 10px;
-            text-align: center;
-            border: 1px solid black;
+            margin: 5px;
         }
-
-        nav {
-            background-color: #ccc;
+        .relative {
+            position: relative; /* Relative to its normal position */
+            top: 20px;
+            left: 20px;
+            background-color: lightblue;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid black;
+            margin: 5px;
+            z-index: 1; /* Can use z-index */
         }
-
-        nav ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        .content {
-            display: flex;
-        }
-
-        .main-content {
-            flex: 2;
+        .absolute {
+            position: absolute; /* Positioned relative to nearest positioned ancestor */
+            top: 50px;
+            left: 50px;
+            background-color: lightcoral;
             padding: 10px;
-            border: 1px solid black;
+            margin: 5px;
+            z-index: 2; /* Appears over .relative */
         }
-
-        .sidebar {
-            flex: 1;
+        .fixed {
+            position: fixed; /* Fixed position relative to the viewport */
+            top: 10px;
+            right: 10px;
+            background-color: lightgreen;
             padding: 10px;
-            margin-left: 10px;
-            border: 1px solid black;
+            margin: 5px;
+            z-index: 3; /* Always appears on top */
         }
-
-        footer {
-            background-color: lightgray;
+        .sticky {
+            position: sticky; /* Sticks to the top when scrolled */
+            top: 0;
+            background-color: lightyellow;
             padding: 10px;
-            text-align: center;
-            margin-top: 10px;
+            margin: 5px;
+            z-index: 4; /* Appears over .fixed when scrolling */
+        }
+        .container {
+            height: 200px;
+            overflow: auto; /* Enable scrolling */
             border: 1px solid black;
+            margin-top: 60px; /* To show sticky effect */
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Fakt</h1>
-    </header>
+    <h1>CSS Positioning and Z-Index Example</h1>
 
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="static">This is a static element (default positioning).</div>
 
-    <div class="content">
-        <div class="main-content">
-            <h2>Wasser gefriert bei 0 Grad Celsius.</h2>
-            <p>This is the main content area.</p>
-        </div>
-
-        <div class="sidebar">
-            <h2>Sidebar</h2>
-            <p>This is the sidebar.</p>
-        </div>
+    <div class="relative">
+        This is a relative element.
+        <div class="absolute">This is an absolute element, positioned relative to the relative element above.</div>
     </div>
 
-    <footer>
-        <p>&copy; CSS Box Model</p>
-    </footer>
+    <div class="fixed">This is a fixed element, always on the top right corner.</div>
+
+    <div class="container">
+        <div class="sticky">This is a sticky element. Scroll down to see the effect.</div>
+        <p>Bananas are berries, but strawberries aren't.</p>
+        <p>The Eiffel Tower can grow up to 6 inches during the summer due to metal expansion.</p>
+        <p>A group of flamingos is called a "flamboyance."</p>
+        <p>Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.</p>
+        <p>The dot over the letter 'i' is called a tittle.</p>
+        <p>Sharks are older than trees. Sharks have existed for around 400 million years, while trees appeared about 350 million years ago.</p>
+        <p>A jiffy is an actual unit of time. It's 1/100th of a second.</p>
+        <p>Random fact: Octopuses have three hearts and blue blood.</p>
+        <p>Elephants are the only animals that can't jump.</p>
+        <p>The shortest war in history lasted just 38 to 45 minutes, between Britain and Zanzibar in 1896.</p>
+        <p>Butterflies taste with their feet.</p>
+        <p>A cat has 32 muscles in each ear.</p>
+        <p>Koalas sleep up to 22 hours a day.</p>
+        <p>Sloths can take up to a month to digest a single meal.</p>
+    </div>
 
 </body>
 </html>
