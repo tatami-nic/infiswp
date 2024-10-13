@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpsons - Tabelle und Uhr</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Die Simpsons Familie</h1>
+    
+    <table class="table table-bordered">
+        <caption>Informationen über die Simpsons Familie</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Alter</th>
+                <th>Größe</th>
+                <th>Lieblingsfarbe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bart Simpson</td>
+                <td>10</td>
+                <td>1,37 m</td>
+                <td>Rot</td>
+            </tr>
+            <tr>
+                <td>Lisa Simpson</td>
+                <td>8</td>
+                <td>1,20 m</td>
+                <td>Gelb</td>
+            </tr>
+            <tr>
+                <td>Marge Simpson</td>
+                <td>36</td>
+                <td>1,64 m</td>
+                <td>Blau</td>
+            </tr>
+            <tr>
+                <td>Homer Simpson</td>
+                <td>39</td>
+                <td>1,83 m</td>
+                <td>Grün</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Die Simpsons sind eine fiktive Familie aus der Serie "The Simpsons" und wurde am 17. Dezember 1989 erstmals ausgestrahlt.</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>Aktuelle Uhrzeit</h2>
+    <div id="clock" class="mb-3">00:00:00</div>
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="startWatch()">Start Watch</button>
+        <button class="btn btn-secondary" onclick="stopWatch()">Stop Watch</button>
+    </div>
+
+    <script>
+        let watchInterval;
+        let isPaused = false;
+        let lastTime;
+
+        function updateClock() {
+            const now = new Date();
+            lastTime = now.toLocaleTimeString();
+            document.getElementById("clock").textContent = lastTime;
+        }
+
+        function startWatch() {
+            if (!isPaused) {
+                updateClock();
+                watchInterval = setInterval(updateClock, 1000);
+            }
+            isPaused = false;
+        }
+
+        function stopWatch() {
+            clearInterval(watchInterval);
+            isPaused = true;
+            document.getElementById("clock").textContent = lastTime;
+        }
+    </script>
+
+</body>
+</html>
