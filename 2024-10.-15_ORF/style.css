@@ -1,0 +1,120 @@
+body{
+  background-color: #5286C1;
+  
+}
+
+.navbar{
+  background-color: #4371a3;
+  padding: 5px 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0px 10px;
+}
+.grid-container {
+  display: grid;
+  margin-left: 100px;  
+  margin-right: 95%;
+  grid-template-columns: 1fr auto auto auto 1fr;
+  grid-template-rows: 150px 150px;
+  grid-template-areas: 
+  "israel flieger flieger man scheich"
+  "israel kfz tisch tisch scheich ";
+}
+.israel {
+  grid-area: israel;
+}
+.flieger {
+  grid-area: flieger;
+}
+.man{
+  grid-area: man;
+}
+.scheich{
+  grid-area: scheich;
+}
+.auto{
+  grid-area: kfz;
+}
+.tisch{
+  grid-area: tisch;
+}
+.emblem1{
+  margin-left: 220px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.emblem2{
+  margin-left: 220px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.weather{
+  font-size: 23px;
+  color: white;
+}
+.Bregenz{
+  font-size: 23px;
+  color: white;
+  position: relative;
+  right: -14%;
+}
+.dropdown-p {
+  display: none;
+  color: white;
+  font-style: arial;
+}
+.dropdown-p:target {
+  display: block;
+  background-color: white;
+  color: black;
+  padding: 25px;
+  font-size: 25px;
+  font-style: arial;
+  margin-left: 150px;
+}
+.drop-title{
+  color: white;
+  font-size: 25px;
+  padding-top: 25px;
+  margin-left: 150px;
+}
+a:visited{
+  color: white;
+}
+a:link{
+  color: white;
+}
+.text{
+  background-color: #5A8BC4;
+  margin-left: 100px;
+  margin-right: 833px;
+}
+h2{
+  position: relative;
+  bottom: -76px;
+}
+
+.footer1 {
+  column-gap: initial;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  min-height: 55px;
+  flex-wrap: wrap;
+  margin-left: 0;
+  padding: 6px 10px;
+  padding-left: 0;
+  white-space: nowrap;
+  margin: 0 0 0 50px;
+  list-style: none;
+  padding-left: 10px;
+  min-width: 36.875em;
+}
+
+main {
+  display: block;
+  background-color: #5A8BC4;
+}
