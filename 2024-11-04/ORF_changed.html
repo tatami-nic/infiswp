@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORF News</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-color: #007BFF;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #0056b3;
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #004494;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #0056b3;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: #ddd;
+            color: black;
+            text-align: center;
+        }
+
+        /* Media Query für Bildschirme kleiner als 800px */
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://tv.orf.at/">Fernsehen</a>
+        <a href="https://tvthek.orf.at/">TVthek</a>
+        <a href="https://sound.orf.at/">Sound</a>
+        <a href="https://topos.orf.at/">Topos</a>
+        <a href="https://debatte.orf.at/">Debatte</a>
+        <a href="https://oesterreich.orf.at/">Österreich</a>
+        <a href="https://wetter.orf.at/oes/">Wetter</a>
+        <a href="https://sport.orf.at">Sport</a>
+        <a href="index.html">News</a>
+        <a href="https://orf.at/uebersicht/">ORF.at im Überblick</a>
+    </div>
+    
+    <div class="container">
+        <div class="w3-card w3-padding">
+            <h2>ORF Nachrichten</h2>
+            <p>Hier finden Sie aktuelle Nachrichten und Berichte.</p>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <div class="grid-item item1"><img src="images/04.jpg" alt="Bild 1" class="w3-card"></div>
+        <div class="grid-item item3"><img src="images/07.jpg" width="170px" height="132px" alt="Bild 2" class="w3-card"></div>
+        <div class="grid-item item4"><img src="images/02.jpg" alt="Bild 3" class="w3-card"></div>
+        <div class="grid-item item5"><img src="images/08.jpg" width="359px" height="137px" alt="Bild 4" class="w3-card"></div>
+        <div class="grid-item item6"><img src="images/00.jpg" width="176" height="137" alt="Bild 5" class="w3-card"></div>
+    </div>
+
+    <div class="footer">
+        <ul class="footer1">
+            <li><a href="https://der.orf.at/kontakt">Kontakt</a></li>
+            <li><a href="https://orf.at/stories/datenschutz">Datenschutz</a></li>
+            <li><a href="https://orf.at/stories/impressum/">Impressum<span class="display-only-desktop">/Offenlegung</span></a></li>
+            <li><a href="https://zukunft.orf.at/show_content2.php?s2id=183">Bekanntgaben laut ORF-G</a></li>
+            <li><a href="https://publikumsrat.orf.at/">Publikumsrat</a></li>
+            <li><img class="orf-brick" src="https://orf.at/mojo/1_4_1/storyserver//news/common/images/orf-brick.svg" alt="ORF-Logo"></li>
+        </ul>
+    </div>
+
+    <div class="w3-container w3-center w3-padding">
+        <button class="w3-button w3-blue">Mehr </button>
+    </div>
+</body>
+</html>
