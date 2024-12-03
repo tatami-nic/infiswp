@@ -1,54 +1,60 @@
-
-import { Database } from "@db/sqlite"
-import { assert } from "@std/assert";
+import { assert } from "@std/assert"; 
 const dataPath = './nmap-datenfiles';
-const db = new Database ("nmap_data.db");
-const outputFilePath = 'Zeit.csv';
 
-
-
-function parseDate(dateStr: string): Date {
+function parseDate(dateStr) {
     const p = dateStr.split('_');
     return new Date(`${p[0]}:${p[1]}:${p[2]}+${p[3]}:${p[4]}`);
 }
 
 async function main() {
+    const csvFilePath = './output.csv'; // CSV output path
+
     try {
-        const dirEntries = await Deno.readDir(dataPath);
-        for await (const dirEntry of dirEntries) {
-            if (!dirEntry.isFile) {
-                continue;
-            }
+        // Open the CSV file for writing
+        const file = await Deno.create(csvFilePath);
+        const encoder = new TextEncoder();
+        
+        // Write the header row directly to the CSV file
+        await file.write(encoder.encode("date,host,mac\n"));
+
+        for await (const dirEntry of Deno.readDir(dataPath)) {
+            if (!dirEntry.isFile) continue;
+
             let date;
             try {
                 date = parseDate(dirEntry.name);
             } catch (err) {
-                assert(err instanceof Error);
                 console.error('Error parsing date:', dirEntry.name, err.message);
                 continue;
             }
+
             const filePath = `${dataPath}/${dirEntry.name}`;
-            let host = undefined;
-            let mac = undefined;
-            for (const cleanline of (await Deno.readTextFile(filePath)).split('\n')) {
-                const cleanline = line.replace(/\r/g, '');
-                if (cleanline.trim() === '' || cleanline.startsWith('Starting Nmap')
-                    || cleanline.startsWith('Nmap done') || cleanline.startsWith('Host is up')) {
+            const lines = (await Deno.readTextFile(filePath)).split('\n');
+
+            for (const line of lines) {
+                if (line.trim() === '' || line.startsWith('Starting Nmap') ||
+                    line.startsWith('Nmap done') || line.startsWith('Host is up')) {
                     continue;
                 }
-                if (cleanline.startsWith('Nmap scan report for ')) {
-                    host = cleanline.split(' ')[4];
-                    continue;
+                if (line.startsWith('Nmap scan report for ')) {
+                    var host = line.split(' ')[4].replace(/\r/g, '');
                 }
-                if (cleanline.startsWith('MAC Address: ')) {
-                    mac = cleanline.split(' ')[2].toLowerCase();
-                    console.log(`${date.toISOString()};${host};${mac}`);
+                if (line.startsWith('MAC Address: ')) {
+                    const mac = line.split(' ')[2].toLowerCase();
+                    const row = `${date.toISOString()},${host},${mac}\n`;
+
+                    // Write each row directly to the file
+                    await file.write(encoder.encode(row));
                 }
             }
         }
-        await Deno.writeTextfile(outputFilePath, outputData);
+
+        // Close the file when done
+        file.close();
+        console.log(`CSV file written to ${csvFilePath}`);
     } catch (err) {
-        console.error('Error reading the file:', err);
+        console.error('Error processing files:', err);
     }
 }
-await main();;
+
+await main();
