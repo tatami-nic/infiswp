@@ -3,15 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-          href="style.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Page</title>
 </head>
 
 <body>
-    schönes html
+    <h1>Schönes HTML</h1>
+    <button onclick="changeText()">Klick mich</button>
+    <p id="text">Dieser Text ändert sich.</p>
+
+    <script>
+        function changeText() {
+            document.getElementById("text").innerText = "Der Text wurde geändert!";
+        }
+    </script>
 </body>
 
 </html>
