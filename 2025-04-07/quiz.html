@@ -3,30 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mathe-Quiz</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-      background: #f8f8f8;
-    }
-    .frage {
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px;
-      margin-top: 10px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .ergebnis {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -35,54 +12,6 @@
   <button onclick="auswerten()">Ergebnis anzeigen</button>
   <div class="ergebnis" id="ergebnis"></div>
 
-  <script>
-    // Klasse Frage
-    class Frage {
-      constructor(frage, optionen, antwort) {
-        this.frage = frage;
-        this.optionen = optionen;
-        this.antwort = antwort;
-      }
-
-      anzeigen(index) {
-        let html = `<div class="frage"><p>${index + 1}. ${this.frage}</p>`;
-        this.optionen.forEach((opt, i) => {
-          html += `<label><input type="radio" name="frage${index}" value="${opt}"> ${opt}</label><br>`;
-        });
-        html += `</div>`;
-        return html;
-      }
-
-      pruefen(gegeben) {
-        return gegeben === this.antwort;
-      }
-    }
-
-    // Fragen erstellen
-    const fragen = [
-      new Frage("Was ist 1 + 1?", ["1", "2", "3"], "2"),
-      new Frage("Was ist 4 - 2?", ["1", "2", "3"], "2"),
-      new Frage("Was ist 2 × 3?", ["5", "6", "7"], "6")
-    ];
-
-    // Fragen anzeigen
-    const quizForm = document.getElementById("quizForm");
-    fragen.forEach((frage, i) => {
-      quizForm.innerHTML += frage.anzeigen(i);
-    });
-
-    // Antworten prüfen
-    function auswerten() {
-      let punkte = 0;
-      fragen.forEach((frage, i) => {
-        const selected = document.querySelector(`input[name="frage${i}"]:checked`);
-        if (selected && frage.pruefen(selected.value)) {
-          punkte++;
-        }
-      });
-      document.getElementById("ergebnis").textContent = `Du hast ${punkte} von ${fragen.length} richtig.`;
-    }
-  </script>
-
+  <script src="quiz.js"></script>
 </body>
 </html>
